@@ -1,11 +1,46 @@
+#spring:
+#  datasource:
+#    url: jdbc:postgresql://localhost:5432/fitness-micro-user
+#    username: postgres
+#    password: root@2026
+#
+#  jpa:
+#    show-sql: true
+#    hibernate:
+#      ddl-auto: update
+#    database-platform: org.hibernate.dialect.PostgreSQLDialect
+#    properties:
+#      hibernate:
+#        format_sql: true
+#        use_sql_comments: true
+#
+#server:
+#  port: 8081
+#
+#eureka:
+#  client:
+#    serviceUrl:
+#      defalultZone: http://localhost:8761/eureka
+#
+#  instance:
+#    prefer-ip-address: true
+#
+#logging:
+#  level:
+#    org.springframework.cloud.gateway: TRACE
+#    org.springframework.cloud.loadbalancer: TRACE
+#    reactor.netty: DEBUG
+
+
+
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/fitness-micro-user
-    username: postgres
-    password: root@2026
+    url: ${DATABASE_URL}
+    username: ${DATABASE_USERNAME}
+    password: ${DATABASE_PASSWORD}
 
   jpa:
-    show-sql: true
+    show-sql: false
     hibernate:
       ddl-auto: update
     database-platform: org.hibernate.dialect.PostgreSQLDialect
@@ -15,20 +50,20 @@ spring:
         use_sql_comments: true
 
 server:
-  port: 8081
+  port: ${PORT:8081}
 
 eureka:
   client:
     serviceUrl:
-      defalultZone: https://fitness-project-1-3z8i.onrender.com/
+      defaultZone: ${EUREKA_SERVER_URL}
 
   instance:
     prefer-ip-address: true
 
 logging:
   level:
-    org.springframework.cloud.gateway: TRACE
-    org.springframework.cloud.loadbalancer: TRACE
-    reactor.netty: DEBUG
+    org.springframework.cloud.gateway: INFO
+    org.springframework.cloud.loadbalancer: INFO
+    reactor.netty: INFO
 
 
