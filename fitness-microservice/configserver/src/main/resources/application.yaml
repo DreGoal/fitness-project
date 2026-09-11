@@ -8,5 +8,8 @@ spring:
       server:
         native:
           search-location: classpath:/config
+#server:
+#  port: 8888
+
 server:
-  port: 8888
+  port: ${PORT:8888}
