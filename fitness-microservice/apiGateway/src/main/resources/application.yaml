@@ -4,5 +4,5 @@ spring:
 #  config:
 #    import: optional:configserver:http://localhost:8888
 
-    config:
-      import: optional:configserver:https://fitness-config-server.onrender.com
+  config:
+    import: optional:configserver:https://fitness-config-server.onrender.com
