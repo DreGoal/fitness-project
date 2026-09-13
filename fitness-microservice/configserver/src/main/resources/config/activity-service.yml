@@ -47,8 +47,9 @@ spring:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
 
-    topic:
-      name: activity-events
+kafka:
+  topic:
+    name: activity-events
 
 server:
   port: ${PORT:8082}
