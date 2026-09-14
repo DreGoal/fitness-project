@@ -1,5 +1,8 @@
 spring:
   application:
     name: ai-service
+#  config:
+#    import: optional:configserver:http://localhost:8888
+
   config:
-    import: optional:configserver:http://localhost:8888
+    import: optional:configserver:https://fitness-config-server.onrender.com
