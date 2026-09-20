@@ -23,10 +23,19 @@ public class WebClientConfig {
 //    }
 
 
+//    @Bean
+//    public WebClient userServiceWebClient() {
+//        return WebClient.builder()
+//                .baseUrl("http://localhost:8081")
+//                .build();
+//    }
+
+
     @Bean
     public WebClient userServiceWebClient() {
         return WebClient.builder()
-                .baseUrl("http://localhost:8081")
+                .baseUrl("http://USER-SERVICE")
                 .build();
     }
+
 }
