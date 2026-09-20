@@ -16,7 +16,8 @@ spring:
                 - Path=/api/users/**
 
             - id: activities-service
-              uri: lb://ACTIVITY-SERVICE
+#              uri: lb://ACTIVITY-SERVICE
+              uri: https://fitness-project-activity-service.onrender.com
               predicates:
                 - Path=/api/activities/**
 

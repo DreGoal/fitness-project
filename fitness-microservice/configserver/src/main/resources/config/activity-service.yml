@@ -61,6 +61,14 @@ eureka:
     service-url:
       defaultZone: ${EUREKA_SERVER_URL}
 
+  instance:
+    hostname: ${EUREKA_INSTANCE_HOSTNAME}
+    prefer-ip-address: false
+    non-secure-port: ${PORT:8082}
+    non-secure-port-enabled: true
+    secure-port-enabled: false
+    instance-id: ${spring.application.name}:${EUREKA_INSTANCE_HOSTNAME}:${PORT:8082}
+
 logging:
   level:
     org.springframework.data.mongodb.core.MongoTemplate: DEBUG
