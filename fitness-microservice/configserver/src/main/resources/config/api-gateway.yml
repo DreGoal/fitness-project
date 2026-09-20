@@ -39,9 +39,10 @@ spring:
               - DELETE
               - OPTIONS
             allowedHeaders:
-              - Authorization
-              - Content-Type
-              - X-User-Id
+              - "*"
+#              - Authorization
+#              - Content-Type
+#              - X-User-Id
             exposedHeaders:
               - Authorization
             allowCredentials: true
