@@ -31,7 +31,7 @@ spring:
           '[/**]':
             allowedOrigins:
               - "http://localhost:5173"
-              - "https://fitness-project-gateway.onrender.com"
+              - "https://fitness-project-frontend.onrender.com"
             allowedMethods:
               - GET
               - POST
