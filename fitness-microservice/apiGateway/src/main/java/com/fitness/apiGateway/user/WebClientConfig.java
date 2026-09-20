@@ -1,39 +1,64 @@
+//package com.fitness.apiGateway.user;
+//
+//import org.springframework.cloud.client.loadbalancer.LoadBalanced;
+//import org.springframework.context.annotation.Bean;
+//import org.springframework.context.annotation.Configuration;
+//import org.springframework.web.reactive.function.client.WebClient;
+//
+//@Configuration
+//public class WebClientConfig {
+//
+//    @Bean
+//    @LoadBalanced
+//   public WebClient.Builder webClientBuilder() {
+//          return WebClient.builder();
+//    }
+//
+//
+//
+//
+////    @Bean
+////    public WebClient userServiceWebClient() {
+////        return WebClient.builder()
+////                .baseUrl("http://localhost:8081")
+////                .build();
+////    }
+//
+//
+//    @Bean
+//    public WebClient userServiceWebClient() {
+//        return WebClient.builder()
+//                .baseUrl("http://USER-SERVICE")
+//                .build();
+//    }
+//}
+
+
+
+
 package com.fitness.apiGateway.user;
 
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.web.reactive.function.client.WebClient;
 
 @Configuration
 public class WebClientConfig {
 
-    @Bean
+    @Bean("loadBalancedWebClientBuilder")
     @LoadBalanced
-   public WebClient.Builder webClientBuilder() {
-          return WebClient.builder();
+    public WebClient.Builder loadBalancedWebClientBuilder() {
+        return WebClient.builder();
     }
 
-//    @Bean
-//    public WebClient userServiceWebClient(WebClient.Builder webClientBuilder) {
-//        return  webClientBuilder()
-//        .baseUrl("http://USERSERVICE")
-//                .build();
-//
-//    }
-
-
-//    @Bean
-//    public WebClient userServiceWebClient() {
-//        return WebClient.builder()
-//                .baseUrl("http://localhost:8081")
-//                .build();
-//    }
-
-
     @Bean
-    public WebClient userServiceWebClient() {
-        return WebClient.builder()
+    public WebClient userServiceWebClient(
+            @org.springframework.beans.factory.annotation.Qualifier("loadBalancedWebClientBuilder")
+            WebClient.Builder builder) {
+
+        return builder
                 .baseUrl("http://USER-SERVICE")
                 .build();
     }
